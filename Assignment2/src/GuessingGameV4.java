@@ -1,4 +1,3 @@
-
 /* Importing libraries */
 import java.util.Scanner;
 
@@ -20,6 +19,7 @@ public class GuessingGameV4
 	  
 	  /* Control Structure (for loop runs for a finite times*/
 	  /*Code that runs repeatedly linearly and nonlinearly */
+	  System.out.println(genRandNum);
 	  for (i = 0; i < 5; i++) 
 	  {
 		  /* --------------Code that repeated runs linearly 5x---------- */
@@ -68,11 +68,16 @@ public class GuessingGameV4
 		  }	
 		  
 	    }  
-	    
-	  /*-----SPECIFIED OUTSIDE THE FOR LOOP-------- */
+	  
+	  
+	  /*-----SPECIFIED OUTSIDE THE FOR LOOP to execute after the break statement-------- */
+	  if( guessedUserInput != genRandNum)
+	  {
+      System.out.println("\n\nYou lose, the number to guess was " + genRandNum);
+	  }
+	  
+	  /*Specified outside the for loop to prevent "Illegal State Exception" Errors */
 	  scannerObject.close(); /*closing the scanner object because we are done collecting users keyboard input */
-
-		  System.out.println("\n\nYou lose, the number to guess was " + genRandNum);
   }
 }
 
