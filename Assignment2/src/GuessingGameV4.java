@@ -74,7 +74,6 @@ public class GuessingGameV4
 	  if (guessedUserInput != genRandNum && i <=5)
 	  {
 		  System.out.println("\n\nYou lose, the number to guess was " + genRandNum);
-		  System.out.print("Try: " + i);
 	  }
   }
 }
