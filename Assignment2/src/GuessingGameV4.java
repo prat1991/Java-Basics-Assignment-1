@@ -6,78 +6,77 @@ public class GuessingGameV4
 {
       /*Scope for Instance Variables */
 	  /* --------------Code that runs linearly 1x---------- */
-	  static Scanner scannerObject = new Scanner(System.in); /*object is an instance of the class */
-	  static int genRandNum= 1 + (int) (Math.random() * 99); /*variable initialization and declaration */
-	  static int guessedUserInput; /*variable initialization and declaration */
-	  static int i;
+	  Scanner scannerObject = new Scanner(System.in); /*object is an instance of the class */
+	  int genRandNum= 1 + (int) (Math.random() * 99); /*variable initialization and declaration */
+	  int guessedUserInput; /*variable initialization and declaration */
+	  int i;
 	
   /* Main Method */
   public static void main(String args[])
   {
-
-      /*Scope for Local Variables */
+	  GuessingGameV4 object = new GuessingGameV4();
+	  
+	  
+	  
+	  /*Scope for Local Variables */
 	  
 	  /* Control Structure (for loop runs for a finite times*/
 	  /*Code that runs repeatedly linearly and nonlinearly */
-	  System.out.println(genRandNum);
-	  for (i = 0; i < 5; i++) 
+	  System.out.println(object.genRandNum);
+	  for (object.i = 0; object.i < 5; object.i++) 
 	  {
 		  /* --------------Code that repeated runs linearly 5x---------- */
 		  
 		  /*USED FOR DEBUGGING PURPOSES ONLY: System.out.println(genRandNum);*/
 		  
 		  System.out.print("\n\nPick a number between 1 and 100 -----> "); /*Prompting user for input*/
-		  guessedUserInput = scannerObject.nextInt(); /*repeatedly asking for user input 5x/ */
+		  object.guessedUserInput = object.scannerObject.nextInt(); /*repeatedly asking for user input 5x/ */
 
 		  /*Code that repeated runs non-linearly 5x */
-		  if (guessedUserInput < 1 || guessedUserInput >100 )
+		  if (object.guessedUserInput < 1 || object.guessedUserInput >100 )
 		  {
 			  /*USED FOR DEBUGGING PURPOSES ONLY: System.out.print("Attempt: " + i); */
 			  System.out.println("Your guess is not between 1 and 100, please try again");
-			  i--;
+			  object.i--;
 			  continue;
 		  }
-		  else if (guessedUserInput > genRandNum)
+		  else if (object.guessedUserInput > object.genRandNum)
 		  {  
 			  /*USED FOR DEBUGGING PURPOSES ONLY: System.out.print("Attempt: " + i); */
-			  if (i >= 5)
+			  if (object.i >= 5)
 			  {
 				  break;
 			  }
 			  System.out.println("Please pick a lower number");
-			  System.out.print("Try: " + i);
+			  System.out.print("Try: " + object.i);
 		  }
 		  
-		  else if (guessedUserInput < genRandNum) 
+		  else if (object.guessedUserInput < object.genRandNum) 
 		  {
 			  /*USED FOR DEBUGGING PURPOSES ONLY: System.out.print("Attempt: " + i); */
-			  if (i >= 5)
+			  if (object.i >= 5)
 			  {
 				  break;
 			  }
 			  System.out.println("Please pick a higher number");
-			  System.out.print("Try: " + i);
+			  System.out.print("Try: " + object.i);
 		  }
 		  
-		  else if (guessedUserInput == genRandNum)
+		  else if (object.guessedUserInput == object.genRandNum)
 		  {
 			  /*USED FOR DEBUGGING PURPOSES ONLY: System.out.print("Attempt: " + i); */
 			  System.out.println("\nYou win!");
-			  System.out.print("Try: " + i);
+			  System.out.print("Try: " + object.i);
 			  break; 
 		  }	
 		  
 	    }  
 	  
-	  
-	  /*-----SPECIFIED OUTSIDE THE FOR LOOP to execute after the break statement-------- */
-	  if( guessedUserInput != genRandNum)
-	  {
-      System.out.println("\n\nYou lose, the number to guess was " + genRandNum);
-	  }
+      System.out.println("\n\nYou lose, the number to guess was " + object.genRandNum);
+
 	  
 	  /*Specified outside the for loop to prevent "Illegal State Exception" Errors */
-	  scannerObject.close(); /*closing the scanner object because we are done collecting users keyboard input */
+	  object.scannerObject.close(); /*closing the scanner object because we are done collecting users keyboard input */
   }
 }
 
